@@ -1,0 +1,61 @@
+
+.postList {
+    display: block;
+    color: var(--white);
+    margin-top: 3rem;
+
+    a {
+        display: block;
+
+        & + a {
+            margin-top: 2.5rem;
+        }
+
+        &:hover h2 {
+            color: var(--pink-500);
+        }
+
+        h2 {
+            font-size: 2.125rem;
+            margin-bottom: .5rem;
+            font-weight: bold;
+            transition: color .5s;
+        }
+
+        p {
+            color: var(--info);
+            font-weight: normal;
+            font-size: 1.375rem;
+            margin-bottom: 1rem;
+        }
+
+        div {
+            display: inline-block;
+            margin-right: 1rem;
+
+            svg {
+                height: 15px;
+                width: 15px;
+                margin-right: .5rem;
+            }
+
+            span {
+                font-size: 1rem;
+                color: var(--info);
+            }
+        }
+    }
+}
+
+.carregarMais {
+    color: var(--pink-500);
+    font-size: 1.375rem;
+    margin: 5rem 0;
+    background: transparent;
+    border: none;
+    transition: filter .5s;
+
+    &:hover {
+        filter: brightness(.8);
+    }
+}
