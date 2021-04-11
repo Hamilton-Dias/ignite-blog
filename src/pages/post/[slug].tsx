@@ -12,9 +12,11 @@ import { RichText } from 'prismic-dom';
 
 import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
+import { useEffect } from 'react';
 
 interface Post {
   first_publication_date: string | null;
+  last_publication_date: string | null;
   data: {
     title: string;
     banner: {
@@ -45,6 +47,18 @@ export default function Post({ post }: PostProps) {
     return Math.ceil(totalPalavras / 200)
     // return '5'
   }
+
+  useEffect(() => {
+    let script = document.createElement("script");
+    let anchor = document.getElementById("inject-comments-for-uterances");
+    script.setAttribute("src", "https://utteranc.es/client.js");
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async", true);
+    script.setAttribute("repo", "Hamilton-Dias/ignite-blog");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute( "theme", "github-light");
+    anchor.appendChild(script);
+  }, []);
 
   if (router.isFallback) {
     return <h1>Carregando...</h1>;
@@ -85,6 +99,13 @@ export default function Post({ post }: PostProps) {
                 <FiClock />
                 <span>{geraTempoLeitura()} min</span>
               </div>
+              {post.first_publication_date != post.last_publication_date && post.last_publication_date && <p><i>* {format(
+                    new Date(post.last_publication_date),
+                    'dd MMM yyyy',
+                    {
+                      locale: ptBR,
+                    }
+                  )}</i></p>}
             </div>
 
             {post.data.content.map((content, index) => (
@@ -95,6 +116,8 @@ export default function Post({ post }: PostProps) {
             ))}
           </div>
         </main>
+
+        <div id="inject-comments-for-uterances"></div>
       </>
   )
 }
@@ -132,6 +155,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = {
     uid: response.uid,
     first_publication_date: response.first_publication_date,
+    last_publication_date: response.last_publication_date,
     data: {
       title: response.data.title,
       subtitle: response.data.subtitle,
