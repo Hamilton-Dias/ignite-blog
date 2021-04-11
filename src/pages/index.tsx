@@ -32,7 +32,7 @@ export default function Home() {
         <title>Home | Blog</title>
       </Head>
 
-      <main>
+      <main className={commonStyles.content}>
         <h1>olá</h1>
       </main>
     </>
