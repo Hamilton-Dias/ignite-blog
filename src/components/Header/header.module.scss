@@ -1,1 +1,38 @@
-// TODO
+.container {
+    height: 5rem;
+}
+
+.content {
+    max-width: 1120px;
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+
+    a {
+        display: flex;
+        transition: color .5s;
+
+        &:hover {
+            color: var(--pink-500);
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 30px;
+
+            &:last-child {
+                color: var(--pink-500);
+            }
+        }
+    }
+}
