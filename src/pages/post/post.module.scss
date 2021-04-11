@@ -1,1 +1,51 @@
-// TODO
+.banner {
+    width: 100%;
+    max-height: 10rem;
+}
+
+.post {
+    margin-top: 3rem;
+
+    h1 {
+        color: var(--white);
+        font-size: 3.625rem;
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+}
+
+.iconsContainer {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    div {
+        display: inline-block;
+        margin-right: 20px;
+
+        svg {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+
+        span {
+            font-size: 1rem;
+            color: var(--info);
+        }
+    }
+}
+
+.secaoConteudo {
+    text-align: justify;
+
+    h2 {
+        color: var(--white);
+        font-weight: bold;
+        margin: 2rem 0;
+    }
+
+    p {
+        color: var(--info);
+    }
+}
